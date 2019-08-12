@@ -15,6 +15,7 @@ class Api::V1::CalorieEntriesController < ApplicationController
 
   # POST /api/v1/calorie_entries
   def create
+    # byebug
     @api_v1_calorie_entry = Api::V1::CalorieEntry.new(api_v1_calorie_entry_params)
 
     if @api_v1_calorie_entry.save
@@ -47,6 +48,6 @@ class Api::V1::CalorieEntriesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def api_v1_calorie_entry_params
-      params.require(:api_v1_calorie_entry).permit(:calorie, :note)
+      params.require(:calorie_entry).permit(:calorie, :note)
     end
 end
